@@ -1,0 +1,46 @@
+Package godot provides a method of programatically building graphs which can
+be output into AT&T "dot" syntax.
+
+For more information about AT&T dot syntax, consult the documentation:
+  Grammar:  http://www.graphviz.org/doc/info/lang.html
+  Examples: http://www.graphviz.org/Gallery.php
+  Graphviz Software: http://www.graphviz.org/Download.php
+
+A short example follows:
+
+  package main
+
+  import "os"
+  import "godot"
+
+  func main() {
+    graph := NewGraph(godot.Undirected)
+
+    nodeA := &godot.Node{Label: "A"}
+    nodeB := &godot.Node{Label: "B"}
+
+    graph.AddNodes(nodeA, nodeB)
+
+    edge1 := &godot.Edge{Src: nodeA, Dst: nodeB}
+
+    graph.AddEdges(edge1)
+
+    dot := graph.Build()
+    dot.Write(os.Stdout)
+  }
+
+The above example will write the following to stdout:
+
+  graph {
+    0 [label="A"];
+    1 [label="B"];
+
+    0 -- 1;
+  }
+
+Which can be converted to a png file using the "dot" program available from
+www.graphviz.org:
+
+  $ go run main.go | dot -Tpng > example.png
+
+A more detailed example can be found in the example subdirectory.

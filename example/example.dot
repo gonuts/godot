@@ -1,0 +1,38 @@
+graph {
+
+	label="Petersen Graph (3-Coloring)"
+
+	node [
+		color="black"
+		label=" "
+		shape="circle"
+		style="filled"
+	]
+
+	0 [fillcolor="red", pos="2.000000,0.000000!"];
+	1 [fillcolor="cornflowerblue", pos="0.618034,1.902113!"];
+	2 [fillcolor="chartreuse", pos="-1.618034,1.175570!"];
+	3 [fillcolor="red", pos="-1.618034,-1.175570!"];
+	4 [fillcolor="cornflowerblue", pos="0.618034,-1.902113!"];
+	5 [fillcolor="cornflowerblue", pos="1.000000,0.000000!"];
+	6 [fillcolor="red", pos="0.309017,0.951057!"];
+	7 [fillcolor="red", pos="-0.809017,0.587785!"];
+	8 [fillcolor="chartreuse", pos="-0.809017,-0.587785!"];
+	9 [fillcolor="chartreuse", pos="0.309017,-0.951057!"];
+
+	0 -- 1;
+	1 -- 2;
+	2 -- 3;
+	3 -- 4;
+	4 -- 0;
+	0 -- 5;
+	1 -- 6;
+	2 -- 7;
+	3 -- 8;
+	4 -- 9;
+	5 -- 7;
+	7 -- 9;
+	9 -- 6;
+	6 -- 8;
+	8 -- 5;
+}
